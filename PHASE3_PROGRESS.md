@@ -1,12 +1,12 @@
 # 🎯 Phase 3: Patient Dashboard - Progress
 
-## 📊 Overall Progress: 25% (3/12 tasks)
+## 📊 Overall Progress: 33% (4/12 tasks)
 
 ```
 F026: Dashboard Layout       ████████████████████ 100% ✅
 F027: Profile Page           ████████████████████ 100% ✅
 F028: Medical Reports        ████████████████████ 100% ✅
-F029: Submit Inquiry         ░░░░░░░░░░░░░░░░░░░░   0%
+F029: Submit Inquiry         ████████████████████ 100% ✅
 F030: My Inquiries           ░░░░░░░░░░░░░░░░░░░░   0%
 F031: View Assessment        ░░░░░░░░░░░░░░░░░░░░   0%
 F032: Cost Estimate          ░░░░░░░░░░░░░░░░░░░░   0%
@@ -269,16 +269,115 @@ Create Booking → Make Payment → Submit Review
 
 ---
 
-## 🎯 Next Task: F029 - Submit Medical Inquiry
+---
 
-**Time:** 8 hours  
+## ✅ F029: Submit Medical Inquiry (COMPLETED)
+
+**Time Spent:** 3 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. Submit Inquiry Page (Multi-Step Form)
+**File:** `src/pages/dashboard/SubmitInquiry.tsx`
+
+**Features:**
+- ✅ 5-step wizard interface
+- ✅ Progress indicator with icons
+- ✅ Step validation
+- ✅ Form data persistence across steps
+- ✅ URL parameter support (hospitalId, doctorId)
+- ✅ Medical reports attachment
+- ✅ Hospital/doctor selection
+- ✅ Budget range input
+- ✅ Urgency level selection
+- ✅ Review step before submission
+- ✅ Loading states
+- ✅ Success/error notifications
+- ✅ Responsive design
+
+**Step Breakdown:**
+1. **Medical Condition** - Condition, symptoms, previous treatments
+2. **Treatment Preferences** - Preferred treatment, hospital, doctor
+3. **Budget & Location** - Budget range, preferred location
+4. **Additional Details** - Urgency level, notes, attach reports
+5. **Review & Submit** - Final review and submission
+
+#### 2. Inquiry Service
+**File:** `src/services/inquiryService.ts`
+
+**Methods:**
+- ✅ `submitInquiry(data)` - Submit new inquiry
+- ✅ `getMyInquiries()` - Get patient inquiries
+- ✅ `getInquiryById(id)` - Get specific inquiry
+- ✅ `cancelInquiry(id)` - Cancel inquiry
+
+**Interfaces:**
+- ✅ Inquiry interface with all fields
+- ✅ InquiryRequest interface
+- ✅ Status enum (PENDING, ASSIGNED, ASSESSED, etc.)
+- ✅ Urgency levels (LOW, MEDIUM, HIGH, URGENT)
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/dashboard/inquiries/new`
+
+### Form Fields
+
+**Medical Information:**
+- Medical Condition (required)
+- Symptoms (required)
+- Previous Treatments
+
+**Preferences:**
+- Preferred Treatment
+- Preferred Hospital (dropdown)
+- Preferred Doctor (dropdown)
+
+**Budget & Location:**
+- Budget Range (min/max)
+- Preferred Location
+
+**Additional:**
+- Urgency Level (required)
+- Additional Notes
+- Attach Medical Reports (checkboxes)
+
+### User Experience
+
+**Navigation:**
+- Step-by-step wizard
+- Previous/Next buttons
+- Progress indicator
+- Step validation
+- Back to dashboard
+
+**Integration:**
+- Pre-fill from URL params
+- Load hospitals/doctors
+- Load patient reports
+- Attach reports to inquiry
+
+### API Integration
+
+**Endpoints Used:**
+- `POST /api/v1/inquiries` - Submit inquiry
+- `GET /api/v1/medical-reports/patient/me` - Get reports
+- `GET /api/v1/hospitals` - Get hospitals
+- `GET /api/v1/doctors` - Get doctors
+
+---
+
+## 🎯 Next Task: F030 - My Inquiries Page
+
+**Time:** 6 hours  
 **Priority:** HIGH  
 **Status:** Ready to start
-
-**This is a critical task** - it starts the patient journey workflow!
 
 ---
 
 **Updated:** January 2025  
-**Status:** 3/12 tasks complete (25%)  
-**Next:** Submit Medical Inquiry
+**Status:** 4/12 tasks complete (33%)  
+**Next:** My Inquiries Page

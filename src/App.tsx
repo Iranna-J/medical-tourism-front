@@ -17,6 +17,7 @@ import PatientDashboard from './pages/dashboard/PatientDashboard';
 import DashboardOverview from './pages/dashboard/DashboardOverview';
 import Profile from './pages/dashboard/Profile';
 import MedicalReports from './pages/dashboard/MedicalReports';
+import SubmitInquiry from './pages/dashboard/SubmitInquiry';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -46,6 +47,7 @@ function App() {
               <Route index element={<DashboardOverview />} />
               <Route path="profile" element={<Profile />} />
               <Route path="reports" element={<MedicalReports />} />
+              <Route path="inquiries/new" element={<SubmitInquiry />} />
             </Route>
           </Routes>        </main>
         <Footer />
