@@ -25,6 +25,9 @@ import CostEstimate from './pages/dashboard/CostEstimate';
 import CreateBooking from './pages/dashboard/CreateBooking';
 import MyBookings from './pages/dashboard/MyBookings';
 import BookingDetail from './pages/dashboard/BookingDetail';
+import PaymentPage from './pages/dashboard/PaymentPage';
+import SubmitReview from './pages/dashboard/SubmitReview';
+import Notifications from './pages/dashboard/Notifications';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -62,6 +65,9 @@ function App() {
               <Route path="inquiries/:id/booking/new" element={<CreateBooking />} />
               <Route path="bookings" element={<MyBookings />} />
               <Route path="bookings/:id" element={<BookingDetail />} />
+              <Route path="payments/:id" element={<PaymentPage />} />
+              <Route path="reviews/new" element={<SubmitReview />} />
+              <Route path="notifications" element={<Notifications />} />
             </Route>
           </Routes>        </main>
         <Footer />
