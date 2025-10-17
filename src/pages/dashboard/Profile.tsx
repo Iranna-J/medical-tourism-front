@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { User, Mail, Phone, MapPin, Calendar, Heart, Shield, AlertCircle, Save } from 'lucide-react';
-import { patientService, Patient, PatientUpdateRequest } from '../../services/patientService';
+import { User, MapPin, Heart, Shield, AlertCircle, Save } from 'lucide-react';
+import { patientService, type Patient, type PatientUpdateRequest } from '../../services/patientService';
 import toast from 'react-hot-toast';
 
 export default function Profile() {

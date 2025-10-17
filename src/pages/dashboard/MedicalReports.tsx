@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import {
-    Upload, FileText, Download, Trash2, Eye,
+    Upload, FileText, Download, Trash2,
     Calendar, File, AlertCircle, CheckCircle, X
 } from 'lucide-react';
-import { medicalReportService, MedicalReport } from '../../services/medicalReportService';
+import { medicalReportService, type MedicalReport } from '../../services/medicalReportService';
 import toast from 'react-hot-toast';
 
 export default function MedicalReports() {
