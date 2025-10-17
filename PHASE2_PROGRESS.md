@@ -1,11 +1,11 @@
 # 🎯 Phase 2: Detail Pages & Search - Progress
 
-## 📊 Overall Progress: 20% (2/10 tasks)
+## 📊 Overall Progress: 30% (3/10 tasks)
 
 ```
 F016: Hospital Detail    ████████████████████ 100% ✅
 F017: Doctor Detail      ████████████████████ 100% ✅
-F018: Treatment Catalog  ░░░░░░░░░░░░░░░░░░░░   0%
+F018: Treatment Catalog  ████████████████████ 100% ✅
 F019: Treatment Detail   ░░░░░░░░░░░░░░░░░░░░   0%
 F020: Global Search      ░░░░░░░░░░░░░░░░░░░░   0%
 F021: Specialization     ░░░░░░░░░░░░░░░░░░░░   0%
@@ -182,18 +182,106 @@ F025: Terms & Privacy    ░░░░░░░░░░░░░░░░░░�
 
 ---
 
-## 🎯 Next Task: F018 - Treatment Catalog Page
+---
 
-**Estimated Time:** 6 hours  
+## ✅ F018: Treatment Catalog Page (COMPLETED)
+
+**Time Spent:** ~2 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. Treatment Catalog Page
+**File:** `src/pages/Treatments.tsx`
+
+**Features Implemented:**
+- ✅ Hero section with title
+- ✅ Search functionality
+- ✅ Category filter dropdown
+- ✅ Sort options (name, cost, duration, success rate)
+- ✅ Active filters display with remove option
+- ✅ Results count
+- ✅ Grid layout (3 columns)
+- ✅ Pagination
+- ✅ Loading skeleton
+- ✅ Empty state
+- ✅ Responsive design
+
+#### 2. Treatment Card Component
+**File:** `src/components/TreatmentCard.tsx`
+
+**Features:**
+- ✅ Treatment name
+- ✅ Success rate badge
+- ✅ Specialization badge
+- ✅ Description preview
+- ✅ Duration display
+- ✅ Cost range display
+- ✅ View details link
+- ✅ Hover effects
+
+#### 3. Treatment Service
+**File:** `src/services/treatmentService.ts`
+
+**Methods:**
+- ✅ `getAll(page, size)` - Get all treatments
+- ✅ `getById(id)` - Get treatment by ID
+- ✅ `getActive(page, size)` - Get active treatments
+- ✅ `searchByName(name, page, size)` - Search treatments
+
+#### 4. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/treatments`
+
+### API Integration
+
+**Endpoints Used:**
+- `GET /api/v1/treatments` - Get all treatments
+- `GET /api/v1/treatments/search` - Search treatments
+
+### Design Features
+
+**UI Components:**
+- Hero section with gradient
+- Search bar with icon
+- Filter dropdowns
+- Active filter chips
+- Treatment cards in grid
+- Pagination controls
+- Loading skeletons
+- Empty state with icon
+
+**Icons Used:**
+- Search, Filter, SlidersHorizontal
+- DollarSign, Clock, TrendingUp, Activity
+
+### User Experience
+
+**Features:**
+- Real-time search
+- Category filtering
+- Multiple sort options
+- Clear active filters
+- Pagination
+- Loading states
+- Empty states
+- Responsive grid
+
+---
+
+## 🎯 Next Task: F020 - Global Search Page
+
+**Estimated Time:** 10 hours  
 **Priority:** HIGH
 
 **What to Build:**
-- Treatment listing page
-- Treatment cards
-- Search & filter
-- Category filter
+- Unified search interface
+- Search across hospitals, doctors, treatments
+- Tabbed results
+- Advanced filters
 - Sort options
-- Cost range display
 
 ---
 
@@ -214,5 +302,5 @@ F025: Terms & Privacy    ░░░░░░░░░░░░░░░░░░�
 ---
 
 **Updated:** January 2025  
-**Status:** 2/10 tasks complete (20%)  
-**Next:** Treatment Catalog Page
+**Status:** 3/10 tasks complete (30%)  
+**Next:** Global Search Page

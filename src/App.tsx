@@ -11,6 +11,7 @@ import Hospitals from './pages/Hospitals';
 import HospitalDetail from './pages/HospitalDetail';
 import Doctors from './pages/Doctors';
 import DoctorDetail from './pages/DoctorDetail';
+import Treatments from './pages/Treatments';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -32,6 +33,7 @@ function App() {
             <Route path="/hospitals/:id" element={<HospitalDetail />} />
             <Route path="/doctors" element={<Doctors />} />
             <Route path="/doctors/:id" element={<DoctorDetail />} />
+            <Route path="/treatments" element={<Treatments />} />
           </Routes>        </main>
         <Footer />
         <Toaster position="top-right" />
