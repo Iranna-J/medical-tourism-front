@@ -45,9 +45,14 @@ export interface Doctor {
     experienceYears: number;
     consultationFee: number;
     rating: number;
+    totalReviews?: number;
     isAvailable: boolean;
     bio?: string;
+    phone?: string;
+    email?: string;
+    photoUrl?: string;
     languages?: string[];
+    awards?: string[];
 }
 
 export interface Treatment {
