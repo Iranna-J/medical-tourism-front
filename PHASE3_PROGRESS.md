@@ -1,6 +1,6 @@
 # 🎯 Phase 3: Patient Dashboard - Progress
 
-## 📊 Overall Progress: 67% (8/12 tasks)
+## 📊 Overall Progress: 75% (9/12 tasks)
 
 ```
 F026: Dashboard Layout       ████████████████████ 100% ✅
@@ -11,7 +11,7 @@ F030: My Inquiries           █████████████████
 F031: View Assessment        ████████████████████ 100% ✅
 F032: Cost Estimate          ████████████████████ 100% ✅
 F033: Create Booking         ████████████████████ 100% ✅
-F034: My Bookings            ░░░░░░░░░░░░░░░░░░░░   0%
+F034: My Bookings            ████████████████████ 100% ✅
 F035: Payment & Invoice      ░░░░░░░░░░░░░░░░░░░░   0%
 F036: Submit Review          ░░░░░░░░░░░░░░░░░░░░   0%
 F037: Notifications          ░░░░░░░░░░░░░░░░░░░░   0%
@@ -780,7 +780,100 @@ Create Booking → Make Payment → Submit Review
 
 ---
 
-## 🎯 Next Task: F034 - My Bookings Page
+---
+
+## ✅ F034: My Bookings Page (COMPLETED)
+
+**Time Spent:** 2.5 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. My Bookings List Page
+**File:** `src/pages/dashboard/MyBookings.tsx`
+
+**Features:**
+- ✅ List all patient bookings
+- ✅ Search by treatment type
+- ✅ Filter by status
+- ✅ Stats cards (Total, Pending, Confirmed, In Progress, Completed)
+- ✅ Status badges with colors
+- ✅ Payment progress bars
+- ✅ Booking details display
+- ✅ View details button
+- ✅ Cancel booking (for pending)
+- ✅ Pay now button (for confirmed with balance)
+- ✅ Empty state
+- ✅ Loading skeletons
+- ✅ Responsive layout
+
+#### 2. Booking Detail Page
+**File:** `src/pages/dashboard/BookingDetail.tsx`
+
+**Features:**
+- ✅ Complete booking information
+- ✅ Treatment details
+- ✅ Hospital and doctor info
+- ✅ Payment information with progress
+- ✅ Remaining balance display
+- ✅ Additional notes
+- ✅ Booking metadata
+- ✅ Status badge
+- ✅ Action buttons (Pay, Review, Cancel)
+- ✅ View inquiry link
+- ✅ Help section
+- ✅ Responsive layout
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/dashboard/bookings` - List page
+- ✅ Route: `/dashboard/bookings/:id` - Detail page
+
+### Booking Status Types
+
+**5 Status Types:**
+- PENDING - Awaiting confirmation
+- CONFIRMED - Booking confirmed
+- IN_PROGRESS - Treatment in progress
+- COMPLETED - Treatment completed
+- CANCELLED - Booking cancelled
+
+### Features Implemented
+
+**List Page:**
+- Search and filter
+- 5 stats cards
+- Payment progress visualization
+- Status-based actions
+- Responsive cards
+
+**Detail Page:**
+- Treatment information
+- Healthcare providers
+- Payment breakdown
+- Progress tracking
+- Contextual actions
+
+### User Actions
+
+**By Status:**
+- PENDING: Cancel booking
+- CONFIRMED: Make payment (if balance remaining)
+- COMPLETED: Submit review
+- All: View details, View inquiry
+
+### API Integration
+
+**Endpoints Used:**
+- `GET /api/v1/bookings/my-bookings` - Get all bookings
+- `GET /api/v1/bookings/{id}` - Get booking details
+- `PUT /api/v1/bookings/{id}/cancel` - Cancel booking
+
+---
+
+## 🎯 Next Task: F035 - Payment & Invoice Page
 
 **Time:** 5 hours  
 **Priority:** HIGH  
@@ -789,5 +882,5 @@ Create Booking → Make Payment → Submit Review
 ---
 
 **Updated:** January 2025  
-**Status:** 8/12 tasks complete (67%)  
-**Next:** My Bookings Page
+**Status:** 9/12 tasks complete (75%)  
+**Next:** Payment & Invoice Page

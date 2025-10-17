@@ -23,6 +23,8 @@ import InquiryDetail from './pages/dashboard/InquiryDetail';
 import ViewAssessment from './pages/dashboard/ViewAssessment';
 import CostEstimate from './pages/dashboard/CostEstimate';
 import CreateBooking from './pages/dashboard/CreateBooking';
+import MyBookings from './pages/dashboard/MyBookings';
+import BookingDetail from './pages/dashboard/BookingDetail';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -58,6 +60,8 @@ function App() {
               <Route path="inquiries/:id/assessment" element={<ViewAssessment />} />
               <Route path="inquiries/:id/cost-estimate" element={<CostEstimate />} />
               <Route path="inquiries/:id/booking/new" element={<CreateBooking />} />
+              <Route path="bookings" element={<MyBookings />} />
+              <Route path="bookings/:id" element={<BookingDetail />} />
             </Route>
           </Routes>        </main>
         <Footer />
