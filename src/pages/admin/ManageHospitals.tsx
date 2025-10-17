@@ -182,7 +182,9 @@ function HospitalForm({ hospital, onClose, onSuccess }: {
         phone: hospital?.phone || '',
         address: hospital?.address || '',
         city: hospital?.city || '',
-        country: hospital?.country || '',
+        state: hospital?.state || '',
+        country: hospital?.country || 'India',
+        postalCode: hospital?.postalCode || '',
         description: hospital?.description || '',
         isActive: hospital?.isActive ?? true,
     });
@@ -272,6 +274,19 @@ function HospitalForm({ hospital, onClose, onSuccess }: {
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">
+                                State/Province *
+                            </label>
+                            <input
+                                type="text"
+                                required
+                                value={formData.state}
+                                onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Country *
                             </label>
                             <input
@@ -279,6 +294,18 @@ function HospitalForm({ hospital, onClose, onSuccess }: {
                                 required
                                 value={formData.country}
                                 onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Postal Code
+                            </label>
+                            <input
+                                type="text"
+                                value={formData.postalCode}
+                                onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500"
                             />
                         </div>

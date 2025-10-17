@@ -24,6 +24,15 @@ export default function AdminOverview() {
             setStats(data);
         } catch (error) {
             console.error('Failed to load stats:', error);
+            // Set default stats on error
+            setStats({
+                hospitals: 0,
+                doctors: 0,
+                treatments: 0,
+                inquiries: 0,
+                bookings: 0,
+                revenue: 0,
+            });
         } finally {
             setLoading(false);
         }

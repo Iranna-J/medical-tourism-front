@@ -4,10 +4,12 @@ import {
     Settings, LogOut, Shield
 } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
+import { useSidebarStore } from '../../store/sidebarStore';
 
 export default function AdminDashboard() {
     const location = useLocation();
     const { user, logout } = useAuthStore();
+    const { isOpen } = useSidebarStore();
 
     const navigation = [
         { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -30,7 +32,8 @@ export default function AdminDashboard() {
         <div className="min-h-screen bg-gray-50">
             <div className="flex">
                 {/* Sidebar */}
-                <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 bg-gray-900 text-white">
+                <aside className={`hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 bg-gray-900 text-white transition-all duration-300 ${isOpen ? 'lg:w-64' : 'lg:w-0'
+                    }`}>
                     {/* Logo */}
                     <div className="flex items-center justify-between h-16 px-6 border-b border-gray-800">
                         <Link to="/" className="flex items-center gap-2">
@@ -64,8 +67,8 @@ export default function AdminDashboard() {
                                     key={item.name}
                                     to={item.href}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${active
-                                            ? 'bg-sky-600 text-white font-medium'
-                                            : 'text-gray-300 hover:bg-gray-800'
+                                        ? 'bg-sky-600 text-white font-medium'
+                                        : 'text-gray-300 hover:bg-gray-800'
                                         }`}
                                 >
                                     <Icon className="h-5 w-5" />
@@ -88,7 +91,7 @@ export default function AdminDashboard() {
                 </aside>
 
                 {/* Main Content */}
-                <main className="flex-1 lg:ml-64">
+                <main className={`flex-1 transition-all duration-300 ${isOpen ? 'lg:ml-64' : 'lg:ml-0'}`}>
                     <div className="p-6">
                         <Outlet />
                     </div>

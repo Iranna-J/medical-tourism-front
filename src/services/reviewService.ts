@@ -31,8 +31,14 @@ export const reviewService = {
     },
 
     getMyReviews: async (): Promise<Review[]> => {
-        const response = await api.get<Review[]>('/v1/reviews/my-reviews');
-        return response.data;
+        try {
+            const response = await api.get<any>('/v1/reviews/me');
+            // Backend returns paginated response, extract content
+            return response.data.content || response.data || [];
+        } catch (error) {
+            console.warn('Reviews endpoint may not be available yet');
+            return [];
+        }
     },
 
     getReviewByBooking: async (bookingId: number): Promise<Review> => {

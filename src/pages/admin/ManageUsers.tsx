@@ -59,9 +59,9 @@ export default function ManageUsers() {
     };
 
     const filteredUsers = users.filter(u =>
-        u.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        u.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        u.email.toLowerCase().includes(searchTerm.toLowerCase())
+        u.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        u.lastName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        u.email?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     if (loading) {
@@ -103,11 +103,11 @@ export default function ManageUsers() {
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 bg-gradient-to-br from-sky-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                                            {user.firstName[0]}{user.lastName[0]}
+                                            {user.firstName?.[0] || 'U'}{user.lastName?.[0] || ''}
                                         </div>
                                         <div>
                                             <p className="font-semibold text-gray-900">
-                                                {user.firstName} {user.lastName}
+                                                {user.firstName || 'Unknown'} {user.lastName || 'User'}
                                             </p>
                                             <p className="text-sm text-gray-500">{user.email}</p>
                                         </div>
