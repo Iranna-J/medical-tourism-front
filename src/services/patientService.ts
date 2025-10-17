@@ -53,17 +53,17 @@ export interface PatientUpdateRequest {
 
 export const patientService = {
     getMyProfile: async (): Promise<Patient> => {
-        const response = await api.get<Patient>('/patients/me');
+        const response = await api.get<Patient>('/v1/patients/me');
         return response.data;
     },
 
     updateMyProfile: async (data: PatientUpdateRequest): Promise<Patient> => {
-        const response = await api.put<Patient>('/patients/me', data);
+        const response = await api.put<Patient>('/v1/patients/me', data);
         return response.data;
     },
 
     getMedicalHistory: async (patientId: number): Promise<any> => {
-        const response = await api.get(`/patients/${patientId}/medical-history`);
+        const response = await api.get(`/v1/patients/${patientId}/medical-history`);
         return response.data;
     },
 };

@@ -13,20 +13,20 @@ export interface Notification {
 
 export const notificationService = {
     getMyNotifications: async (): Promise<Notification[]> => {
-        const response = await api.get<Notification[]>('/notifications/my-notifications');
+        const response = await api.get<Notification[]>('/v1/notifications/my-notifications');
         return response.data;
     },
 
     markAsRead: async (id: number): Promise<void> => {
-        await api.put(`/notifications/${id}/read`);
+        await api.put(`/v1/notifications/${id}/read`);
     },
 
     markAllAsRead: async (): Promise<void> => {
-        await api.put('/notifications/read-all');
+        await api.put('/v1/notifications/read-all');
     },
 
     getUnreadCount: async (): Promise<number> => {
-        const response = await api.get<{ count: number }>('/notifications/unread-count');
+        const response = await api.get<{ count: number }>('/v1/notifications/unread-count');
         return response.data.count;
     },
 };

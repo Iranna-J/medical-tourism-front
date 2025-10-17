@@ -42,27 +42,27 @@ export interface PaymentRequest {
 
 export const paymentService = {
     makePayment: async (data: PaymentRequest): Promise<Payment> => {
-        const response = await api.post<Payment>('/payments', data);
+        const response = await api.post<Payment>('/v1/payments', data);
         return response.data;
     },
 
     getPaymentsByBooking: async (bookingId: number): Promise<Payment[]> => {
-        const response = await api.get<Payment[]>(`/payments/booking/${bookingId}`);
+        const response = await api.get<Payment[]>(`/v1/payments/booking/${bookingId}`);
         return response.data;
     },
 
     getMyPayments: async (): Promise<Payment[]> => {
-        const response = await api.get<Payment[]>('/payments/my-payments');
+        const response = await api.get<Payment[]>('/v1/payments/my-payments');
         return response.data;
     },
 
     getInvoiceByBooking: async (bookingId: number): Promise<Invoice> => {
-        const response = await api.get<Invoice>(`/invoices/booking/${bookingId}`);
+        const response = await api.get<Invoice>(`/v1/invoices/booking/${bookingId}`);
         return response.data;
     },
 
     downloadInvoice: async (invoiceId: number): Promise<Blob> => {
-        const response = await api.get(`/invoices/${invoiceId}/download`, {
+        const response = await api.get(`/v1/invoices/${invoiceId}/download`, {
             responseType: 'blob',
         });
         return response.data;

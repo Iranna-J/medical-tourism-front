@@ -37,21 +37,21 @@ export interface InquiryRequest {
 
 export const inquiryService = {
     submitInquiry: async (data: InquiryRequest): Promise<Inquiry> => {
-        const response = await api.post<Inquiry>('/inquiries', data);
+        const response = await api.post<Inquiry>('/v1/inquiries', data);
         return response.data;
     },
 
     getMyInquiries: async (): Promise<Inquiry[]> => {
-        const response = await api.get<Inquiry[]>('/inquiries/my-inquiries');
+        const response = await api.get<Inquiry[]>('/v1/inquiries/my-inquiries');
         return response.data;
     },
 
     getInquiryById: async (id: number): Promise<Inquiry> => {
-        const response = await api.get<Inquiry>(`/inquiries/${id}`);
+        const response = await api.get<Inquiry>(`/v1/inquiries/${id}`);
         return response.data;
     },
 
     cancelInquiry: async (id: number): Promise<void> => {
-        await api.put(`/inquiries/${id}/cancel`);
+        await api.put(`/v1/inquiries/${id}/cancel`);
     },
 };

@@ -30,21 +30,21 @@ export interface BookingRequest {
 
 export const bookingService = {
     createBooking: async (data: BookingRequest): Promise<Booking> => {
-        const response = await api.post<Booking>('/bookings', data);
+        const response = await api.post<Booking>('/v1/bookings', data);
         return response.data;
     },
 
     getMyBookings: async (): Promise<Booking[]> => {
-        const response = await api.get<Booking[]>('/bookings/my-bookings');
+        const response = await api.get<Booking[]>('/v1/bookings/my-bookings');
         return response.data;
     },
 
     getBookingById: async (id: number): Promise<Booking> => {
-        const response = await api.get<Booking>(`/bookings/${id}`);
+        const response = await api.get<Booking>(`/v1/bookings/${id}`);
         return response.data;
     },
 
     cancelBooking: async (id: number, reason: string): Promise<void> => {
-        await api.put(`/bookings/${id}/cancel`, { reason });
+        await api.put(`/v1/bookings/${id}/cancel`, { reason });
     },
 };

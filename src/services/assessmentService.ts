@@ -32,20 +32,20 @@ export interface TreatmentRecommendation {
 
 export const assessmentService = {
     getAssessmentByInquiryId: async (inquiryId: number): Promise<Assessment> => {
-        const response = await api.get<Assessment>(`/assessments/inquiry/${inquiryId}`);
+        const response = await api.get<Assessment>(`/v1/assessments/inquiry/${inquiryId}`);
         return response.data;
     },
 
     getRecommendations: async (assessmentId: number): Promise<TreatmentRecommendation[]> => {
-        const response = await api.get<TreatmentRecommendation[]>(`/assessments/${assessmentId}/recommendations`);
+        const response = await api.get<TreatmentRecommendation[]>(`/v1/assessments/${assessmentId}/recommendations`);
         return response.data;
     },
 
     approveAssessment: async (assessmentId: number): Promise<void> => {
-        await api.post(`/assessments/${assessmentId}/approve`);
+        await api.post(`/v1/assessments/${assessmentId}/approve`);
     },
 
     requestChanges: async (assessmentId: number, notes: string): Promise<void> => {
-        await api.post(`/assessments/${assessmentId}/request-changes`, { notes });
+        await api.post(`/v1/assessments/${assessmentId}/request-changes`, { notes });
     },
 };

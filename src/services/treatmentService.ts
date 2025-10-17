@@ -3,26 +3,26 @@ import type { Treatment, PaginatedResponse } from '../types';
 
 export const treatmentService = {
     getAll: async (page = 0, size = 12): Promise<PaginatedResponse<Treatment>> => {
-        const response = await api.get<PaginatedResponse<Treatment>>('/treatments', {
+        const response = await api.get<PaginatedResponse<Treatment>>('/v1/treatments', {
             params: { page, size },
         });
         return response.data;
     },
 
     getById: async (id: number): Promise<Treatment> => {
-        const response = await api.get<Treatment>(`/treatments/${id}`);
+        const response = await api.get<Treatment>(`/v1/treatments/${id}`);
         return response.data;
     },
 
     getActive: async (page = 0, size = 12): Promise<PaginatedResponse<Treatment>> => {
-        const response = await api.get<PaginatedResponse<Treatment>>('/treatments/active', {
+        const response = await api.get<PaginatedResponse<Treatment>>('/v1/treatments/active', {
             params: { page, size },
         });
         return response.data;
     },
 
     searchByName: async (name: string, page = 0, size = 12): Promise<PaginatedResponse<Treatment>> => {
-        const response = await api.get<PaginatedResponse<Treatment>>('/treatments/search', {
+        const response = await api.get<PaginatedResponse<Treatment>>('/v1/treatments/search', {
             params: { name, page, size },
         });
         return response.data;

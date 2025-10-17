@@ -26,17 +26,17 @@ export interface ReviewRequest {
 
 export const reviewService = {
     submitReview: async (data: ReviewRequest): Promise<Review> => {
-        const response = await api.post<Review>('/reviews', data);
+        const response = await api.post<Review>('/v1/reviews', data);
         return response.data;
     },
 
     getMyReviews: async (): Promise<Review[]> => {
-        const response = await api.get<Review[]>('/reviews/my-reviews');
+        const response = await api.get<Review[]>('/v1/reviews/my-reviews');
         return response.data;
     },
 
     getReviewByBooking: async (bookingId: number): Promise<Review> => {
-        const response = await api.get<Review>(`/reviews/booking/${bookingId}`);
+        const response = await api.get<Review>(`/v1/reviews/booking/${bookingId}`);
         return response.data;
     },
 };

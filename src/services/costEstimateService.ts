@@ -32,15 +32,15 @@ export interface CostApprovalRequest {
 
 export const costEstimateService = {
     getCostEstimateByInquiryId: async (inquiryId: number): Promise<CostEstimate> => {
-        const response = await api.get<CostEstimate>(`/cost-estimates/inquiry/${inquiryId}`);
+        const response = await api.get<CostEstimate>(`/v1/cost-estimates/inquiry/${inquiryId}`);
         return response.data;
     },
 
     approveCostEstimate: async (estimateId: number, data: CostApprovalRequest): Promise<void> => {
-        await api.post(`/cost-estimates/${estimateId}/approve`, data);
+        await api.post(`/v1/cost-estimates/${estimateId}/approve`, data);
     },
 
     requestRevision: async (estimateId: number, notes: string): Promise<void> => {
-        await api.post(`/cost-estimates/${estimateId}/request-revision`, { notes });
+        await api.post(`/v1/cost-estimates/${estimateId}/request-revision`, { notes });
     },
 };

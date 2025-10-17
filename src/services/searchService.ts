@@ -34,12 +34,12 @@ export interface SearchResponse {
 
 export const searchService = {
     search: async (request: SearchRequest): Promise<SearchResponse> => {
-        const response = await api.post<SearchResponse>('/search', request);
+        const response = await api.post<SearchResponse>('/v1/search', request);
         return response.data;
     },
 
     quickSearch: async (query: string): Promise<SearchResponse> => {
-        const response = await api.get<SearchResponse>('/search', {
+        const response = await api.get<SearchResponse>('/v1/search', {
             params: { query },
         });
         return response.data;
@@ -53,9 +53,9 @@ export const searchService = {
         } catch (error) {
             // Fallback to individual searches
             const [hospitals, doctors, treatments] = await Promise.all([
-                api.get<{ content: Hospital[] }>('/hospitals', { params: { page: 0, size: 10 } }),
-                api.get<{ content: Doctor[] }>('/doctors', { params: { page: 0, size: 10 } }),
-                api.get<{ content: Treatment[] }>('/treatments', { params: { page: 0, size: 10 } }),
+                api.get<{ content: Hospital[] }>('/v1/hospitals', { params: { page: 0, size: 10 } }),
+                api.get<{ content: Doctor[] }>('/v1/doctors', { params: { page: 0, size: 10 } }),
+                api.get<{ content: Treatment[] }>('/v1/treatments', { params: { page: 0, size: 10 } }),
             ]);
 
             const queryLower = query.toLowerCase();
