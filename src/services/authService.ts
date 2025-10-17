@@ -3,7 +3,7 @@ import type { AuthResponse } from '../types';
 
 export const authService = {
     login: async (email: string, password: string): Promise<AuthResponse> => {
-        const response = await api.post<AuthResponse>('/auth/login', { email, password });
+        const response = await api.post<AuthResponse>('/v1/auth/login', { email, password });
         return response.data;
     },
 
@@ -14,12 +14,12 @@ export const authService = {
         lastName: string;
         role: string;
     }): Promise<AuthResponse> => {
-        const response = await api.post<AuthResponse>('/auth/register', data);
+        const response = await api.post<AuthResponse>('/v1/auth/register', data);
         return response.data;
     },
 
     getCurrentUser: async () => {
-        const response = await api.get('/auth/me');
+        const response = await api.get('/v1/auth/me');
         return response.data;
     },
 };

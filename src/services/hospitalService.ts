@@ -1,16 +1,21 @@
 import api from '../config/api';
-import type { Hospital, PaginatedResponse } from '../types';
+import type { Hospital, Doctor, PaginatedResponse } from '../types';
 
 export const hospitalService = {
     getAll: async (page = 0, size = 10): Promise<PaginatedResponse<Hospital>> => {
-        const response = await api.get<PaginatedResponse<Hospital>>('/hospitals', {
+        const response = await api.get<PaginatedResponse<Hospital>>('/v1/hospitals', {
             params: { page, size },
         });
         return response.data;
     },
 
     getById: async (id: number): Promise<Hospital> => {
-        const response = await api.get<Hospital>(`/hospitals/${id}`);
+        const response = await api.get<Hospital>(`/v1/hospitals/${id}`);
+        return response.data;
+    },
+
+    getDoctors: async (id: number): Promise<Doctor[]> => {
+        const response = await api.get<Doctor[]>(`/v1/hospitals/${id}/doctors`);
         return response.data;
     },
 

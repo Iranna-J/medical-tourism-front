@@ -22,15 +22,17 @@ export interface Hospital {
     city: string;
     state: string;
     country: string;
-    pincode: string;
+    pincode?: string;
+    postalCode?: string;
     phone: string;
     email: string;
     website?: string;
     isJciAccredited: boolean;
     isNabhAccredited: boolean;
     rating: number;
-    totalBeds: number;
-    icuBeds: number;
+    totalBeds?: number;
+    bedCount?: number;
+    icuBeds?: number;
     isActive: boolean;
 }
 
@@ -43,9 +45,14 @@ export interface Doctor {
     experienceYears: number;
     consultationFee: number;
     rating: number;
+    totalReviews?: number;
     isAvailable: boolean;
     bio?: string;
+    phone?: string;
+    email?: string;
+    photoUrl?: string;
     languages?: string[];
+    awards?: string[];
 }
 
 export interface Treatment {
