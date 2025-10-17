@@ -28,6 +28,12 @@ import BookingDetail from './pages/dashboard/BookingDetail';
 import PaymentPage from './pages/dashboard/PaymentPage';
 import SubmitReview from './pages/dashboard/SubmitReview';
 import Notifications from './pages/dashboard/Notifications';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminOverview from './pages/admin/AdminOverview';
+import ManageHospitals from './pages/admin/ManageHospitals';
+import ManageDoctors from './pages/admin/ManageDoctors';
+import ManageTreatments from './pages/admin/ManageTreatments';
+import ManageUsers from './pages/admin/ManageUsers';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -68,6 +74,15 @@ function App() {
               <Route path="payments/:id" element={<PaymentPage />} />
               <Route path="reviews/new" element={<SubmitReview />} />
               <Route path="notifications" element={<Notifications />} />
+            </Route>
+
+            {/* Admin Dashboard */}
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route index element={<AdminOverview />} />
+              <Route path="hospitals" element={<ManageHospitals />} />
+              <Route path="doctors" element={<ManageDoctors />} />
+              <Route path="treatments" element={<ManageTreatments />} />
+              <Route path="users" element={<ManageUsers />} />
             </Route>
           </Routes>        </main>
         <Footer />

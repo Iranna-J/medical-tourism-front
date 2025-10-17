@@ -41,6 +41,11 @@ export default function Navbar() {
 
                         {isAuthenticated ? (
                             <div className="flex items-center space-x-4">
+                                {user?.role === 'ADMIN' && (
+                                    <Link to="/admin" className="text-gray-700 hover:text-primary-600 font-medium">
+                                        Admin
+                                    </Link>
+                                )}
                                 <Link to="/dashboard" className="flex items-center space-x-2 text-gray-700 hover:text-primary-600">
                                     <User className="h-5 w-5" />
                                     <span>{user?.firstName}</span>

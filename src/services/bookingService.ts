@@ -35,8 +35,9 @@ export const bookingService = {
     },
 
     getMyBookings: async (): Promise<Booking[]> => {
-        const response = await api.get<Booking[]>('/v1/bookings/my-bookings');
-        return response.data;
+        const response = await api.get<any>('/v1/bookings/me');
+        // Backend returns paginated response, extract content
+        return response.data.content || response.data;
     },
 
     getBookingById: async (id: number): Promise<Booking> => {

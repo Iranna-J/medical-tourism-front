@@ -20,7 +20,13 @@ export default function Login() {
             const response = await authService.login(email, password);
             setAuth(response.user, response.accessToken);
             toast.success('Login successful!');
-            navigate('/dashboard');
+
+            // Redirect based on user role
+            if (response.user.role === 'ADMIN') {
+                navigate('/admin');
+            } else {
+                navigate('/dashboard');
+            }
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Login failed. Please try again.');
         } finally {
