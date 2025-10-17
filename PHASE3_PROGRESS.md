@@ -1,13 +1,13 @@
 # 🎯 Phase 3: Patient Dashboard - Progress
 
-## 📊 Overall Progress: 33% (4/12 tasks)
+## 📊 Overall Progress: 42% (5/12 tasks)
 
 ```
 F026: Dashboard Layout       ████████████████████ 100% ✅
 F027: Profile Page           ████████████████████ 100% ✅
 F028: Medical Reports        ████████████████████ 100% ✅
 F029: Submit Inquiry         ████████████████████ 100% ✅
-F030: My Inquiries           ░░░░░░░░░░░░░░░░░░░░   0%
+F030: My Inquiries           ████████████████████ 100% ✅
 F031: View Assessment        ░░░░░░░░░░░░░░░░░░░░   0%
 F032: Cost Estimate          ░░░░░░░░░░░░░░░░░░░░   0%
 F033: Create Booking         ░░░░░░░░░░░░░░░░░░░░   0%
@@ -370,7 +370,105 @@ Create Booking → Make Payment → Submit Review
 
 ---
 
-## 🎯 Next Task: F030 - My Inquiries Page
+---
+
+## ✅ F030: My Inquiries Page (COMPLETED)
+
+**Time Spent:** 3 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. My Inquiries List Page
+**File:** `src/pages/dashboard/MyInquiries.tsx`
+
+**Features:**
+- ✅ List all patient inquiries
+- ✅ Search by condition/symptoms
+- ✅ Filter by status
+- ✅ Status badges with colors and icons
+- ✅ Urgency level badges
+- ✅ Stats cards (Total, Pending, Active, Completed)
+- ✅ Empty state with CTA
+- ✅ Loading skeletons
+- ✅ Click to view details
+- ✅ Cancel inquiry option (for pending)
+- ✅ View assessment link (for assessed)
+- ✅ Responsive grid layout
+- ✅ Date formatting
+- ✅ Budget display
+- ✅ Location display
+
+#### 2. Inquiry Detail Page
+**File:** `src/pages/dashboard/InquiryDetail.tsx`
+
+**Features:**
+- ✅ Complete inquiry information
+- ✅ Medical condition details
+- ✅ Treatment preferences
+- ✅ Budget and location info
+- ✅ Attached reports list
+- ✅ Status and urgency badges
+- ✅ Assigned doctor info
+- ✅ Submission date
+- ✅ Additional notes
+- ✅ Action buttons (Cancel, View Assessment)
+- ✅ Back navigation
+- ✅ Loading state
+- ✅ Error handling
+- ✅ Responsive layout
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/dashboard/inquiries` - List page
+- ✅ Route: `/dashboard/inquiries/:id` - Detail page
+
+### Status Types
+
+**Inquiry Status:**
+- PENDING - Just submitted, waiting for assignment
+- ASSIGNED - Assigned to a doctor
+- ASSESSED - Doctor has completed assessment
+- RECOMMENDED - Treatment plan recommended
+- APPROVED - Patient approved the plan
+- COMPLETED - Treatment completed
+- CANCELLED - Inquiry cancelled
+
+**Urgency Levels:**
+- LOW - Not urgent (green)
+- MEDIUM - Standard priority (yellow)
+- HIGH - High priority (orange)
+- URGENT - Immediate attention (red)
+
+### User Experience
+
+**List Page:**
+- Search and filter functionality
+- Quick stats overview
+- Color-coded status badges
+- Urgency indicators
+- Click to view details
+- Contextual actions
+
+**Detail Page:**
+- Comprehensive information display
+- Sidebar with quick info
+- Attached reports section
+- Status-based actions
+- Clean, organized layout
+
+### API Integration
+
+**Endpoints Used:**
+- `GET /api/v1/inquiries/my-inquiries` - Get all inquiries
+- `GET /api/v1/inquiries/{id}` - Get inquiry details
+- `PUT /api/v1/inquiries/{id}/cancel` - Cancel inquiry
+
+---
+
+## 🎯 Next Task: F031 - View Assessment Page
 
 **Time:** 6 hours  
 **Priority:** HIGH  
@@ -379,5 +477,5 @@ Create Booking → Make Payment → Submit Review
 ---
 
 **Updated:** January 2025  
-**Status:** 4/12 tasks complete (33%)  
-**Next:** My Inquiries Page
+**Status:** 5/12 tasks complete (42%)  
+**Next:** View Assessment Page

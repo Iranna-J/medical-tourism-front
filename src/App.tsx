@@ -18,6 +18,8 @@ import DashboardOverview from './pages/dashboard/DashboardOverview';
 import Profile from './pages/dashboard/Profile';
 import MedicalReports from './pages/dashboard/MedicalReports';
 import SubmitInquiry from './pages/dashboard/SubmitInquiry';
+import MyInquiries from './pages/dashboard/MyInquiries';
+import InquiryDetail from './pages/dashboard/InquiryDetail';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -47,7 +49,9 @@ function App() {
               <Route index element={<DashboardOverview />} />
               <Route path="profile" element={<Profile />} />
               <Route path="reports" element={<MedicalReports />} />
+              <Route path="inquiries" element={<MyInquiries />} />
               <Route path="inquiries/new" element={<SubmitInquiry />} />
+              <Route path="inquiries/:id" element={<InquiryDetail />} />
             </Route>
           </Routes>        </main>
         <Footer />

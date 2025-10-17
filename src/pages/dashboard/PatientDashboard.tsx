@@ -2,7 +2,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import {
     LayoutDashboard, User, FileText, MessageSquare,
     Calendar, CreditCard, Star, Bell, LogOut,
-    Activity, TrendingUp
+    Activity
 } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 
@@ -66,8 +66,8 @@ export default function PatientDashboard() {
                                     key={item.name}
                                     to={item.href}
                                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition ${active
-                                            ? 'bg-sky-50 text-sky-600 font-medium'
-                                            : 'text-gray-700 hover:bg-gray-50'
+                                        ? 'bg-sky-50 text-sky-600 font-medium'
+                                        : 'text-gray-700 hover:bg-gray-50'
                                         }`}
                                 >
                                     <Icon className="h-5 w-5" />
