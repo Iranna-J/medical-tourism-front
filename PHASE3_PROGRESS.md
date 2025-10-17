@@ -1,6 +1,6 @@
 # 🎯 Phase 3: Patient Dashboard - Progress
 
-## 📊 Overall Progress: 42% (5/12 tasks)
+## 📊 Overall Progress: 50% (6/12 tasks)
 
 ```
 F026: Dashboard Layout       ████████████████████ 100% ✅
@@ -8,7 +8,7 @@ F027: Profile Page           █████████████████
 F028: Medical Reports        ████████████████████ 100% ✅
 F029: Submit Inquiry         ████████████████████ 100% ✅
 F030: My Inquiries           ████████████████████ 100% ✅
-F031: View Assessment        ░░░░░░░░░░░░░░░░░░░░   0%
+F031: View Assessment        ████████████████████ 100% ✅
 F032: Cost Estimate          ░░░░░░░░░░░░░░░░░░░░   0%
 F033: Create Booking         ░░░░░░░░░░░░░░░░░░░░   0%
 F034: My Bookings            ░░░░░░░░░░░░░░░░░░░░   0%
@@ -468,14 +468,117 @@ Create Booking → Make Payment → Submit Review
 
 ---
 
-## 🎯 Next Task: F031 - View Assessment Page
+---
 
-**Time:** 6 hours  
+## ✅ F031: View Assessment Page (COMPLETED)
+
+**Time Spent:** 3 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. View Assessment Page
+**File:** `src/pages/dashboard/ViewAssessment.tsx`
+
+**Features:**
+- ✅ Display doctor's assessment
+- ✅ Show diagnosis and notes
+- ✅ Recommended treatment details
+- ✅ Risk and urgency level badges
+- ✅ Treatment duration and cost
+- ✅ Additional tests required
+- ✅ Precautions and care instructions
+- ✅ Treatment recommendations list
+- ✅ Success rate indicators
+- ✅ Cost range summary
+- ✅ Approve assessment action
+- ✅ Request changes modal
+- ✅ Assessment info sidebar
+- ✅ Help section
+- ✅ Responsive layout
+
+#### 2. Assessment Service
+**File:** `src/services/assessmentService.ts`
+
+**Methods:**
+- ✅ `getAssessmentByInquiryId(id)` - Get assessment
+- ✅ `getRecommendations(assessmentId)` - Get treatment options
+- ✅ `approveAssessment(id)` - Approve assessment
+- ✅ `requestChanges(id, notes)` - Request changes
+
+**Interfaces:**
+- ✅ Assessment interface
+- ✅ TreatmentRecommendation interface
+- ✅ Risk levels (LOW, MEDIUM, HIGH)
+- ✅ Urgency levels
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/dashboard/inquiries/:id/assessment`
+
+### Assessment Display
+
+**Main Sections:**
+1. **Original Inquiry** - Patient's submitted condition
+2. **Diagnosis** - Doctor's diagnosis with notes
+3. **Recommended Treatment** - Treatment plan details
+4. **Additional Tests** - Required tests (if any)
+5. **Precautions** - Care instructions
+6. **Treatment Options** - Multiple recommendations with costs
+
+**Treatment Recommendations:**
+- Treatment type and description
+- Estimated cost
+- Duration
+- Success rate
+- Hospital and doctor info
+- Priority ranking
+
+### User Actions
+
+**Approve Assessment:**
+- Confirm and approve the assessment
+- Proceed to next step (booking)
+
+**Request Changes:**
+- Modal dialog for feedback
+- Describe needed changes
+- Submit to doctor for review
+
+### Visual Design
+
+**Color Coding:**
+- Risk levels (green/yellow/red)
+- Urgency levels (green/yellow/orange/red)
+- Treatment options (numbered cards)
+- Cost summary (green gradient)
+
+**Layout:**
+- Two-column responsive layout
+- Main content + sidebar
+- Card-based sections
+- Clear information hierarchy
+
+### API Integration
+
+**Endpoints Used:**
+- `GET /api/v1/assessments/inquiry/{id}` - Get assessment
+- `GET /api/v1/assessments/{id}/recommendations` - Get recommendations
+- `POST /api/v1/assessments/{id}/approve` - Approve
+- `POST /api/v1/assessments/{id}/request-changes` - Request changes
+
+---
+
+## 🎯 Next Task: F032 - Cost Estimate Page
+
+**Time:** 5 hours  
 **Priority:** HIGH  
 **Status:** Ready to start
 
 ---
 
 **Updated:** January 2025  
-**Status:** 5/12 tasks complete (42%)  
-**Next:** View Assessment Page
+**Status:** 6/12 tasks complete (50%)  
+**Next:** Cost Estimate Page
