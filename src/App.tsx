@@ -21,6 +21,7 @@ import SubmitInquiry from './pages/dashboard/SubmitInquiry';
 import MyInquiries from './pages/dashboard/MyInquiries';
 import InquiryDetail from './pages/dashboard/InquiryDetail';
 import ViewAssessment from './pages/dashboard/ViewAssessment';
+import CostEstimate from './pages/dashboard/CostEstimate';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -54,6 +55,7 @@ function App() {
               <Route path="inquiries/new" element={<SubmitInquiry />} />
               <Route path="inquiries/:id" element={<InquiryDetail />} />
               <Route path="inquiries/:id/assessment" element={<ViewAssessment />} />
+              <Route path="inquiries/:id/cost-estimate" element={<CostEstimate />} />
             </Route>
           </Routes>        </main>
         <Footer />

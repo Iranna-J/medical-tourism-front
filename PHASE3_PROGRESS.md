@@ -1,6 +1,6 @@
 # 🎯 Phase 3: Patient Dashboard - Progress
 
-## 📊 Overall Progress: 50% (6/12 tasks)
+## 📊 Overall Progress: 58% (7/12 tasks)
 
 ```
 F026: Dashboard Layout       ████████████████████ 100% ✅
@@ -9,7 +9,7 @@ F028: Medical Reports        █████████████████
 F029: Submit Inquiry         ████████████████████ 100% ✅
 F030: My Inquiries           ████████████████████ 100% ✅
 F031: View Assessment        ████████████████████ 100% ✅
-F032: Cost Estimate          ░░░░░░░░░░░░░░░░░░░░   0%
+F032: Cost Estimate          ████████████████████ 100% ✅
 F033: Create Booking         ░░░░░░░░░░░░░░░░░░░░   0%
 F034: My Bookings            ░░░░░░░░░░░░░░░░░░░░   0%
 F035: Payment & Invoice      ░░░░░░░░░░░░░░░░░░░░   0%
@@ -571,14 +571,119 @@ Create Booking → Make Payment → Submit Review
 
 ---
 
-## 🎯 Next Task: F032 - Cost Estimate Page
+---
 
-**Time:** 5 hours  
+## ✅ F032: Cost Estimate Page (COMPLETED)
+
+**Time Spent:** 2.5 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. Cost Estimate Page
+**File:** `src/pages/dashboard/CostEstimate.tsx`
+
+**Features:**
+- ✅ Detailed cost breakdown
+- ✅ 8 cost categories with icons
+- ✅ Subtotal calculation
+- ✅ Tax and discount display
+- ✅ Total cost calculation
+- ✅ Insurance coverage deduction
+- ✅ Net payable amount
+- ✅ Payment options list
+- ✅ Validity date display
+- ✅ Important notes section
+- ✅ Approve estimate action
+- ✅ Request revision modal
+- ✅ Currency formatting
+- ✅ Responsive layout
+
+#### 2. Cost Estimate Service
+**File:** `src/services/costEstimateService.ts`
+
+**Methods:**
+- ✅ `getCostEstimateByInquiryId(id)` - Get estimate
+- ✅ `approveCostEstimate(id, data)` - Approve estimate
+- ✅ `requestRevision(id, notes)` - Request revision
+
+**Interfaces:**
+- ✅ CostEstimate interface
+- ✅ CostApprovalRequest interface
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/dashboard/inquiries/:id/cost-estimate`
+
+### Cost Categories
+
+**8 Cost Items:**
+1. Treatment Cost
+2. Hospital Fees
+3. Doctor Fees
+4. Medication
+5. Lab Tests
+6. Accommodation
+7. Travel Assistance
+8. Miscellaneous
+
+**Calculations:**
+- Subtotal (sum of all items)
+- Tax Amount
+- Discount Amount
+- Total Cost
+- Insurance Coverage (if applicable)
+- Net Payable (Total - Insurance)
+
+### Visual Design
+
+**Color-Coded Icons:**
+- Each cost category has unique color
+- Professional icon set
+- Hover effects on items
+
+**Summary Card:**
+- Gradient blue background
+- White text
+- Large total display
+- Insurance breakdown
+
+**Layout:**
+- Two-column responsive
+- Main content + sidebar
+- Card-based sections
+
+### User Actions
+
+**Approve & Proceed:**
+- Confirmation modal
+- Shows final amount
+- Proceeds to booking
+
+**Request Revision:**
+- Modal with textarea
+- Describe needed changes
+- Submit to admin
+
+### API Integration
+
+**Endpoints Used:**
+- `GET /api/v1/cost-estimates/inquiry/{id}` - Get estimate
+- `POST /api/v1/cost-estimates/{id}/approve` - Approve
+- `POST /api/v1/cost-estimates/{id}/request-revision` - Request revision
+
+---
+
+## 🎯 Next Task: F033 - Create Booking Page
+
+**Time:** 6 hours  
 **Priority:** HIGH  
 **Status:** Ready to start
 
 ---
 
 **Updated:** January 2025  
-**Status:** 6/12 tasks complete (50%)  
-**Next:** Cost Estimate Page
+**Status:** 7/12 tasks complete (58%)  
+**Next:** Create Booking Page
