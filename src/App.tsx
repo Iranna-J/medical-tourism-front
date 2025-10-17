@@ -16,6 +16,7 @@ import Search from './pages/Search';
 import PatientDashboard from './pages/dashboard/PatientDashboard';
 import DashboardOverview from './pages/dashboard/DashboardOverview';
 import Profile from './pages/dashboard/Profile';
+import MedicalReports from './pages/dashboard/MedicalReports';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -44,6 +45,7 @@ function App() {
             <Route path="/dashboard" element={<PatientDashboard />}>
               <Route index element={<DashboardOverview />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="reports" element={<MedicalReports />} />
             </Route>
           </Routes>        </main>
         <Footer />
