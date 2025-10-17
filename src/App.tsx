@@ -12,6 +12,10 @@ import HospitalDetail from './pages/HospitalDetail';
 import Doctors from './pages/Doctors';
 import DoctorDetail from './pages/DoctorDetail';
 import Treatments from './pages/Treatments';
+import Search from './pages/Search';
+import PatientDashboard from './pages/dashboard/PatientDashboard';
+import DashboardOverview from './pages/dashboard/DashboardOverview';
+import Profile from './pages/dashboard/Profile';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -34,6 +38,13 @@ function App() {
             <Route path="/doctors" element={<Doctors />} />
             <Route path="/doctors/:id" element={<DoctorDetail />} />
             <Route path="/treatments" element={<Treatments />} />
+            <Route path="/search" element={<Search />} />
+
+            {/* Patient Dashboard */}
+            <Route path="/dashboard" element={<PatientDashboard />}>
+              <Route index element={<DashboardOverview />} />
+              <Route path="profile" element={<Profile />} />
+            </Route>
           </Routes>        </main>
         <Footer />
         <Toaster position="top-right" />

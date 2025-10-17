@@ -1,13 +1,13 @@
 # 🎯 Phase 2: Detail Pages & Search - Progress
 
-## 📊 Overall Progress: 30% (3/10 tasks)
+## 📊 Overall Progress: 40% (4/10 tasks)
 
 ```
 F016: Hospital Detail    ████████████████████ 100% ✅
 F017: Doctor Detail      ████████████████████ 100% ✅
 F018: Treatment Catalog  ████████████████████ 100% ✅
 F019: Treatment Detail   ░░░░░░░░░░░░░░░░░░░░   0%
-F020: Global Search      ░░░░░░░░░░░░░░░░░░░░   0%
+F020: Global Search      ████████████████████ 100% ✅
 F021: Specialization     ░░░░░░░░░░░░░░░░░░░░   0%
 F022: About Us           ░░░░░░░░░░░░░░░░░░░░   0%
 F023: Contact Us         ░░░░░░░░░░░░░░░░░░░░   0%
@@ -271,17 +271,127 @@ F025: Terms & Privacy    ░░░░░░░░░░░░░░░░░░�
 
 ---
 
-## 🎯 Next Task: F020 - Global Search Page
+---
 
-**Estimated Time:** 10 hours  
-**Priority:** HIGH
+## ✅ F020: Global Search Page (COMPLETED)
 
-**What to Build:**
-- Unified search interface
-- Search across hospitals, doctors, treatments
-- Tabbed results
-- Advanced filters
-- Sort options
+**Time Spent:** ~3 hours  
+**Status:** ✅ Complete
+
+### What Was Built
+
+#### 1. Global Search Page
+**File:** `src/pages/Search.tsx`
+
+**Features Implemented:**
+- ✅ Hero section with search bar
+- ✅ URL parameter support (?q=query)
+- ✅ Unified search across all entities
+- ✅ Tabbed results (All, Hospitals, Doctors, Treatments)
+- ✅ Sidebar filters:
+  - Minimum rating filter
+  - Maximum price filter
+  - Location filter
+- ✅ Clear filters button
+- ✅ Results count display
+- ✅ Result cards with:
+  - Type icon and badge
+  - Name and description
+  - Specialty and location
+  - Rating and review count
+  - Price display
+- ✅ Loading state with skeletons
+- ✅ Empty state (no results)
+- ✅ Initial state (no search yet)
+- ✅ Responsive design
+
+#### 2. Search Service
+**File:** `src/services/searchService.ts`
+
+**Features:**
+- ✅ `search(request)` - Advanced search with filters
+- ✅ `quickSearch(query)` - Simple query search
+- ✅ `searchAll(query)` - Fallback search across all endpoints
+- ✅ TypeScript interfaces for search request/response
+- ✅ Automatic fallback if unified search API not available
+
+**Methods:**
+- Unified search API integration
+- Fallback to individual endpoint searches
+- Client-side filtering and mapping
+- Type-safe search results
+
+#### 3. Routing
+**File:** `src/App.tsx`
+
+**Added:**
+- ✅ Route: `/search`
+
+#### 4. Integration
+**File:** `src/pages/Home.tsx`
+
+**Already integrated:**
+- ✅ Search bar links to `/search?q=query`
+
+### API Integration
+
+**Endpoints Used:**
+- `POST /api/v1/search` - Unified search (primary)
+- `GET /api/v1/search?query=...` - Quick search (fallback)
+- Individual endpoints as fallback:
+  - `GET /api/v1/hospitals`
+  - `GET /api/v1/doctors`
+  - `GET /api/v1/treatments`
+
+### Design Features
+
+**UI Components:**
+- Hero section with prominent search
+- Sticky filter sidebar
+- Tabbed navigation for results
+- Result cards with rich information
+- Loading skeletons
+- Empty states
+- Filter chips
+
+**Icons Used:**
+- SearchIcon, Filter, MapPin, Star
+- Building2, User, Activity, DollarSign, X
+
+### User Experience
+
+**Features:**
+- URL-based search (shareable links)
+- Real-time filtering
+- Tab switching
+- Clear active filters
+- Loading states
+- Empty states
+- Responsive layout
+- Direct links to detail pages
+
+**Search Flow:**
+1. User enters query
+2. Results load with tabs
+3. User can filter by rating, price, location
+4. User can switch between tabs
+5. Click result → Navigate to detail page
+
+---
+
+## 🎯 Remaining Tasks (6/10)
+
+### Quick Wins (Low Priority)
+- F021: Specialization Browse Page (4h)
+- F022: About Us Page (3h)
+- F023: Contact Us Page (4h)
+- F024: FAQ Page (3h)
+- F025: Terms & Privacy Pages (2h)
+
+### Optional
+- F019: Treatment Detail Page (6h)
+
+**Total Remaining:** ~22 hours
 
 ---
 
@@ -302,5 +412,5 @@ F025: Terms & Privacy    ░░░░░░░░░░░░░░░░░░�
 ---
 
 **Updated:** January 2025  
-**Status:** 3/10 tasks complete (30%)  
-**Next:** Global Search Page
+**Status:** 4/10 tasks complete (40%)  
+**Next:** Static Pages (Quick Wins)
