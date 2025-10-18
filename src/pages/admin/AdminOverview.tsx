@@ -5,12 +5,12 @@ import { adminService } from '../../services/adminService';
 
 export default function AdminOverview() {
     const [stats, setStats] = useState({
-        hospitals: 0,
-        doctors: 0,
-        treatments: 0,
-        inquiries: 0,
-        bookings: 0,
-        revenue: 0,
+        totalHospitals: 0,
+        totalDoctors: 0,
+        totalTreatments: 0,
+        totalInquiries: 0,
+        totalBookings: 0,
+        totalPayments: 0,
     });
     const [loading, setLoading] = useState(true);
 
@@ -26,12 +26,12 @@ export default function AdminOverview() {
             console.error('Failed to load stats:', error);
             // Set default stats on error
             setStats({
-                hospitals: 0,
-                doctors: 0,
-                treatments: 0,
-                inquiries: 0,
-                bookings: 0,
-                revenue: 0,
+                totalHospitals: 0,
+                totalDoctors: 0,
+                totalTreatments: 0,
+                totalInquiries: 0,
+                totalBookings: 0,
+                totalPayments: 0,
             });
         } finally {
             setLoading(false);
@@ -39,12 +39,12 @@ export default function AdminOverview() {
     };
 
     const statsDisplay = [
-        { name: 'Total Hospitals', value: stats.hospitals, icon: Building2, color: 'bg-blue-500' },
-        { name: 'Total Doctors', value: stats.doctors, icon: Users, color: 'bg-purple-500' },
-        { name: 'Total Treatments', value: stats.treatments, icon: Activity, color: 'bg-green-500' },
-        { name: 'Total Inquiries', value: stats.inquiries, icon: FileText, color: 'bg-yellow-500' },
-        { name: 'Total Bookings', value: stats.bookings, icon: TrendingUp, color: 'bg-pink-500' },
-        { name: 'Total Revenue', value: `$${stats.revenue.toLocaleString()}`, icon: DollarSign, color: 'bg-emerald-500' },
+        { name: 'Total Hospitals', value: stats.totalHospitals, icon: Building2, color: 'bg-blue-500' },
+        { name: 'Total Doctors', value: stats.totalDoctors, icon: Users, color: 'bg-purple-500' },
+        { name: 'Total Treatments', value: stats.totalTreatments, icon: Activity, color: 'bg-green-500' },
+        { name: 'Total Inquiries', value: stats.totalInquiries, icon: FileText, color: 'bg-yellow-500' },
+        { name: 'Total Bookings', value: stats.totalBookings, icon: TrendingUp, color: 'bg-pink-500' },
+        { name: 'Total Payments', value: stats.totalPayments, icon: DollarSign, color: 'bg-emerald-500' },
     ];
 
     if (loading) {

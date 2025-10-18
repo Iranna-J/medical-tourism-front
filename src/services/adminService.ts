@@ -75,7 +75,7 @@ export const adminService = {
     // Analytics
     analytics: {
         getStats: async () => {
-            const response = await api.get('/v1/admin/analytics/stats');
+            const response = await api.get('/v1/admin/stats');
             return response.data;
         },
     },
