@@ -12,6 +12,7 @@ import HospitalDetail from './pages/HospitalDetail';
 import Doctors from './pages/Doctors';
 import DoctorDetail from './pages/DoctorDetail';
 import Treatments from './pages/Treatments';
+import About from './pages/About';
 import Search from './pages/Search';
 import PatientDashboard from './pages/dashboard/PatientDashboard';
 import DashboardOverview from './pages/dashboard/DashboardOverview';
@@ -26,8 +27,18 @@ import CreateBooking from './pages/dashboard/CreateBooking';
 import MyBookings from './pages/dashboard/MyBookings';
 import BookingDetail from './pages/dashboard/BookingDetail';
 import PaymentPage from './pages/dashboard/PaymentPage';
+import MyPayments from './pages/dashboard/MyPayments';
 import SubmitReview from './pages/dashboard/SubmitReview';
+import MyReviews from './pages/dashboard/MyReviews';
 import Notifications from './pages/dashboard/Notifications';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminOverview from './pages/admin/AdminOverview';
+import ManageHospitals from './pages/admin/ManageHospitals';
+import ManageDoctors from './pages/admin/ManageDoctors';
+import ManageTreatments from './pages/admin/ManageTreatments';
+import ManageUsers from './pages/admin/ManageUsers';
+import Reports from './pages/admin/Reports';
+import Settings from './pages/admin/Settings';
 
 function App() {
   const { initAuth } = useAuthStore();
@@ -50,6 +61,7 @@ function App() {
             <Route path="/doctors" element={<Doctors />} />
             <Route path="/doctors/:id" element={<DoctorDetail />} />
             <Route path="/treatments" element={<Treatments />} />
+            <Route path="/about" element={<About />} />
             <Route path="/search" element={<Search />} />
 
             {/* Patient Dashboard */}
@@ -65,9 +77,22 @@ function App() {
               <Route path="inquiries/:id/booking/new" element={<CreateBooking />} />
               <Route path="bookings" element={<MyBookings />} />
               <Route path="bookings/:id" element={<BookingDetail />} />
+              <Route path="payments" element={<MyPayments />} />
               <Route path="payments/:id" element={<PaymentPage />} />
+              <Route path="reviews" element={<MyReviews />} />
               <Route path="reviews/new" element={<SubmitReview />} />
               <Route path="notifications" element={<Notifications />} />
+            </Route>
+
+            {/* Admin Dashboard */}
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route index element={<AdminOverview />} />
+              <Route path="hospitals" element={<ManageHospitals />} />
+              <Route path="doctors" element={<ManageDoctors />} />
+              <Route path="treatments" element={<ManageTreatments />} />
+              <Route path="users" element={<ManageUsers />} />
+              <Route path="reports" element={<Reports />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
           </Routes>        </main>
         <Footer />

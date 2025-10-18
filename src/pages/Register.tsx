@@ -37,7 +37,13 @@ export default function Register() {
             const response = await authService.register(registerData);
             setAuth(response.user, response.accessToken);
             toast.success('Registration successful!');
-            navigate('/dashboard');
+
+            // Redirect based on user role
+            if (response.user.role === 'ADMIN') {
+                navigate('/admin');
+            } else {
+                navigate('/dashboard');
+            }
         } catch (error: any) {
             toast.error(error.response?.data?.message || 'Registration failed. Please try again.');
         } finally {

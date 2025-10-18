@@ -1,23 +1,37 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, User, LogOut, Heart } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, LogOut, Heart } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
+import { useSidebarStore } from '../store/sidebarStore';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const { isAuthenticated, user, logout } = useAuthStore();
+    const { isAuthenticated, logout } = useAuthStore();
+    const { toggleSidebar } = useSidebarStore();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = () => {
         logout();
         navigate('/');
     };
 
+    const isInDashboard = location.pathname.startsWith('/admin') || location.pathname.startsWith('/dashboard');
+
     return (
         <nav className="bg-white shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
+                        {isAuthenticated && isInDashboard && (
+                            <button
+                                onClick={toggleSidebar}
+                                className="text-gray-700 hover:text-primary-600 p-2 mr-2 rounded-lg hover:bg-gray-100 transition"
+                                title="Toggle Sidebar"
+                            >
+                                <Menu className="h-6 w-6" />
+                            </button>
+                        )}
                         <Link to="/" className="flex items-center space-x-2">
                             <Heart className="h-8 w-8 text-primary-600" />
                             <span className="text-2xl font-bold text-primary-600">MediTravel</span>
@@ -41,10 +55,6 @@ export default function Navbar() {
 
                         {isAuthenticated ? (
                             <div className="flex items-center space-x-4">
-                                <Link to="/dashboard" className="flex items-center space-x-2 text-gray-700 hover:text-primary-600">
-                                    <User className="h-5 w-5" />
-                                    <span>{user?.firstName}</span>
-                                </Link>
                                 <button
                                     onClick={handleLogout}
                                     className="flex items-center space-x-2 text-gray-700 hover:text-red-600"

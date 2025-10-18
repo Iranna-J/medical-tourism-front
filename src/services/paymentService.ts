@@ -52,8 +52,14 @@ export const paymentService = {
     },
 
     getMyPayments: async (): Promise<Payment[]> => {
-        const response = await api.get<Payment[]>('/v1/payments/my-payments');
-        return response.data;
+        try {
+            const response = await api.get<any>('/v1/payments/me');
+            // Backend returns paginated response, extract content
+            return response.data.content || response.data || [];
+        } catch (error) {
+            console.warn('Payments endpoint may not be available yet');
+            return [];
+        }
     },
 
     getInvoiceByBooking: async (bookingId: number): Promise<Invoice> => {

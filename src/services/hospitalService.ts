@@ -20,16 +20,31 @@ export const hospitalService = {
     },
 
     getActive: async (page = 0, size = 10): Promise<PaginatedResponse<Hospital>> => {
-        const response = await api.get<PaginatedResponse<Hospital>>('/hospitals/active', {
+        const response = await api.get<PaginatedResponse<Hospital>>('/v1/hospitals/active', {
             params: { page, size },
         });
         return response.data;
     },
 
     searchByCity: async (city: string, page = 0, size = 10): Promise<PaginatedResponse<Hospital>> => {
-        const response = await api.get<PaginatedResponse<Hospital>>('/hospitals/search/city', {
+        const response = await api.get<PaginatedResponse<Hospital>>('/v1/hospitals/search/city', {
             params: { city, page, size },
         });
         return response.data;
+    },
+
+    // Admin methods
+    create: async (data: Partial<Hospital>): Promise<Hospital> => {
+        const response = await api.post<Hospital>('/v1/hospitals', data);
+        return response.data;
+    },
+
+    update: async (id: number, data: Partial<Hospital>): Promise<Hospital> => {
+        const response = await api.put<Hospital>(`/v1/hospitals/${id}`, data);
+        return response.data;
+    },
+
+    delete: async (id: number): Promise<void> => {
+        await api.delete(`/v1/hospitals/${id}`);
     },
 };

@@ -42,8 +42,9 @@ export const inquiryService = {
     },
 
     getMyInquiries: async (): Promise<Inquiry[]> => {
-        const response = await api.get<Inquiry[]>('/v1/inquiries/my-inquiries');
-        return response.data;
+        const response = await api.get<any>('/v1/inquiries/me');
+        // Backend returns paginated response, extract content
+        return response.data.content || response.data;
     },
 
     getInquiryById: async (id: number): Promise<Inquiry> => {
